@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="v1_0_0_begin" author="LucySm">
+        <tagDatabase tag="v1.0.0"/>
+    </changeSet>
+
+    <changeSet id="v1_0_0_initial" author="LucySm">
+        <comment>Initial</comment>
+
+        <sqlFile path="./schemas/mapping_service.sql" relativeToChangelogFile="true" endDelimiter=""/>
+
+        <sqlFile path="./tables/mapping_service.cmc_currencies_data.sql" relativeToChangelogFile="true" endDelimiter=""/>
+        <sqlFile path="./tables/mapping_service.consumers.sql" relativeToChangelogFile="true" endDelimiter=""/>
+        <sqlFile path="./tables/mapping_service.consumers_currencies_data.sql" relativeToChangelogFile="true" endDelimiter=""/>
+        <sqlFile path="./tables/mapping_service.currencies_data.sql" relativeToChangelogFile="true" endDelimiter=""/>
+        <sqlFile path="./tables/mapping_service.currency_with_network.sql" relativeToChangelogFile="true" endDelimiter=""/>
+        <sqlFile path="./tables/mapping_service.mappings_with_stock_currencies.sql" relativeToChangelogFile="true" endDelimiter=""/>
+        <sqlFile path="./tables/mapping_service.networks_data.sql" relativeToChangelogFile="true" endDelimiter=""/>
+        <sqlFile path="./tables/mapping_service.stocks.sql" relativeToChangelogFile="true" endDelimiter=""/>
+        <sqlFile path="./tables/mapping_service.stocks_currencies_data.sql" relativeToChangelogFile="true" endDelimiter=""/>
+
+        <rollback>
+            <sqlFile path="./tables/rollback/mapping_service.cmc_currencies_data.sql" relativeToChangelogFile="true" endDelimiter=""/>
+            <sqlFile path="./tables/rollback/mapping_service.consumers.sql" relativeToChangelogFile="true" endDelimiter=""/>
+            <sqlFile path="./tables/rollback/mapping_service.consumers_currencies_data.sql" relativeToChangelogFile="true" endDelimiter=""/>
+            <sqlFile path="./tables/rollback/mapping_service.currencies_data.sql" relativeToChangelogFile="true" endDelimiter=""/>
+            <sqlFile path="./tables/rollback/mapping_service.currency_with_network.sql" relativeToChangelogFile="true" endDelimiter=""/>
+            <sqlFile path="./tables/rollback/mapping_service.mappings_with_stock_currencies.sql" relativeToChangelogFile="true" endDelimiter=""/>
+            <sqlFile path="./tables/rollback/mapping_service.networks_data.sql" relativeToChangelogFile="true" endDelimiter=""/>
+            <sqlFile path="./tables/rollback/mapping_service.stocks.sql" relativeToChangelogFile="true" endDelimiter=""/>
+            <sqlFile path="./tables/rollback/mapping_service.stocks_currencies_data.sql" relativeToChangelogFile="true" endDelimiter=""/>
+
+            <sqlFile path="./schemas/mapping_service.rollback.sql" relativeToChangelogFile="true" endDelimiter=""/>
+        </rollback>
+
+    </changeSet>
+
+    <changeSet id="v1_0_0_end" author="LucySm"/>
+
+</databaseChangeLog>

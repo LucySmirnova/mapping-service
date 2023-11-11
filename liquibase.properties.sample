@@ -1,0 +1,14 @@
+driver: org.postgresql.Driver
+url: jdbc:postgresql://{db_host}:{db_port}/{db_name}
+classpath: /app
+username: {liquibase_user}
+password: {liquibase_pass}
+changeLogFile: ./liquibase/changelog.xml
+
+parameter.app_role: {app_role}
+parameter.app_role_viewer: {app_role_viewer}
+
+# exclude utils from default execution
+labels: !util
+
+liquibase.hub.mode=off
