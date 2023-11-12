@@ -25,7 +25,17 @@
         <sqlFile path="./tables/mapping_service.stocks.sql" relativeToChangelogFile="true" endDelimiter=""/>
         <sqlFile path="./tables/mapping_service.stocks_currencies_data.sql" relativeToChangelogFile="true" endDelimiter=""/>
 
+        <sqlFile path="./functions/mapping_service.create_consumer.sql" relativeToChangelogFile="true" endDelimiter=""/>
+        <sqlFile path="./functions/mapping_service.create_consumer_currencies_data.sql" relativeToChangelogFile="true" endDelimiter=""/>
+        <sqlFile path="./functions/mapping_service.update_cmc_currencies_data.sql" relativeToChangelogFile="true" endDelimiter=""/>
+
         <rollback>
+            <!-- drop all functions -->
+            DROP FUNCTION IF EXISTS mapping_service.create_consumer CASCADE;
+            DROP FUNCTION IF EXISTS mapping_service.create_consumer_currencies_data CASCADE;
+            DROP FUNCTION IF EXISTS mapping_service.update_cmc_currencies_data CASCADE;
+
+            <!-- drop all tables  -->
             <sqlFile path="./tables/rollback/mapping_service.cmc_currencies_data.sql" relativeToChangelogFile="true" endDelimiter=""/>
             <sqlFile path="./tables/rollback/mapping_service.consumers.sql" relativeToChangelogFile="true" endDelimiter=""/>
             <sqlFile path="./tables/rollback/mapping_service.consumers_currencies_data.sql" relativeToChangelogFile="true" endDelimiter=""/>
@@ -36,6 +46,7 @@
             <sqlFile path="./tables/rollback/mapping_service.stocks.sql" relativeToChangelogFile="true" endDelimiter=""/>
             <sqlFile path="./tables/rollback/mapping_service.stocks_currencies_data.sql" relativeToChangelogFile="true" endDelimiter=""/>
 
+            <!-- drop all schemas and roles -->
             <sqlFile path="./schemas/mapping_service.rollback.sql" relativeToChangelogFile="true" endDelimiter=""/>
         </rollback>
 
